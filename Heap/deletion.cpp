@@ -2,6 +2,7 @@
 
 using namespace std;
 
+// Max Heap
 // In deletion, always delete the root node only.
 
 /*
