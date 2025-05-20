@@ -98,7 +98,7 @@ int main()
 
     // level order traversal ->
     cout << endl;
-    levelOrderTrav(n1);
+    levelOrderTrav(n1); 
     cout << endl;
 
     return 0;
