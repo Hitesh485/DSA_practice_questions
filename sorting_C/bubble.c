@@ -5,7 +5,7 @@ void bubble(int arr[], int n)
 {
     // for (int i = 0; i < n; i++)
     // {
-    // here optimization is that   last ele of jth index we ignore because it already sorted after round 1,2,3 and so on. So, it should like j-i.
+    // here optimization is that last ele of jth index we ignore because it already sorted after round 1,2,3 and so on. So, it should like j-i.
     //     for (int j = 0; j < n-1; j++)
     //     {
     //         if (arr[j] > arr[j+1])

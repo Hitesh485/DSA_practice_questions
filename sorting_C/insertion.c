@@ -15,6 +15,7 @@ void insertion (int arr[], int n)
             j--;
         }
         arr[j+1] = key;
+        // printf("key :  %d\n", key ); 
     }
 }
 
