@@ -52,6 +52,7 @@ public:
             // C
             cout << frontNode << " , ";
             // D -> insert neighbours
+            // neighbours will store value of particular key (firstNode).
             for (auto neighbours : adjList[frontNode])
             {
                 if (!visited[neighbours])
@@ -90,13 +91,18 @@ int main()
     // g.addEdge(7,6,0);
     // g.addEdge(7,4,0);
 
-    g.addEdge(0, 1, 0);
-    g.addEdge(1, 3, 0);
-    g.addEdge(0, 2, 0);
-    g.addEdge(2, 4, 0);
-    g.print();
+    // g.addEdge(0, 1, 0);
+    // g.addEdge(1, 3, 0);
+    // g.addEdge(0, 2, 0);
+    // g.addEdge(2, 4, 0);
+    // g.print();
 
-    int n = 5; // number of nodes
+    
+    g.addEdge(0,1,0);
+    g.addEdge(0,2,0);
+    g.addEdge(1,2,0);
+
+    int n = 3; // number of nodes
 
     cout << "BFS --------------> " << endl;
     // g.bfs(0); // 0  as a source node.
