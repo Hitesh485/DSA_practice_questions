@@ -257,7 +257,7 @@ int main()
 
 
 
-
+    // n is nothing but number of nodes.
     int n = 8;
     // unordered_map<int, bool> visited;
     // bool ans = false;
