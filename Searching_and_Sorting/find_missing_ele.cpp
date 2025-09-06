@@ -18,6 +18,32 @@ int missingEle(vector<int> &arr)
     return -1;
 }
 
+int missingNumber_with_arraySum(vector<int>& arr) {
+        // Code here
+        // simple array sum method 
+        
+        // sum from 1 to n
+        int sum = 0;
+        
+        if (arr[0] == 2)
+        {
+            return 1;
+        }
+        
+        for (int i = 1; i <= arr.size()+1; i++)
+        {
+            sum = sum + i;
+        }
+        
+        int sum2 = 0;
+        for (int i = 0; i < arr.size(); i++)
+        {
+            sum2 += arr[i];
+        }
+        
+        return (sum - sum2);
+    }
+
 bool absoluteDiff(int ele1, int ele2)
 {
     // cout << "abs : " << (abs(ele1 - ele2) == 1) << endl;
@@ -76,6 +102,7 @@ int main()
     vector<int> arr = {1, 2, 3, 4, 5, 6, 7, 8};
 
     // cout << missingEle (arr) << endl;
+    // cout << missingNumber_with_arraySum(arr) << endl;
     cout << missingEleWithBinarySearch(arr) << endl;
     return 0;
 }
