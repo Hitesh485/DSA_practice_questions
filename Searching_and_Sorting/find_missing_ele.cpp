@@ -26,44 +26,49 @@ bool absoluteDiff(int ele1, int ele2)
 
 int missingEleWithBinarySearch(vector<int> &arr)
 {
-    int start = 0;
-    int end = arr.size() - 1;
-
-    while (start <= end)
-    {
-        int mid = start + (end - start) / 2;
-
-        if (!absoluteDiff(arr[mid], arr[mid + 1]))
+        int start = 0;
+        int end = arr.size() - 1;
+        
+        // edge case (single ele)
+        if (arr[0] == 2)
         {
-            cout << "mid+1 " << arr[mid] << endl;
-            return arr[mid] + 1;
+            return 1;
         }
-        else if (!absoluteDiff(arr[mid], arr[mid - 1]))
+    
+        while (start <= end)
         {
-            cout << "mid-1 " << arr[mid] << endl;
-            return arr[mid] - 1;
+            int mid = start + (end - start) / 2;
+    
+            if (!absoluteDiff(arr[mid], arr[mid + 1]))
+            {
+                return arr[mid] + 1;
+            }
+            else if (!absoluteDiff(arr[mid], arr[mid - 1]))
+            {
+                return arr[mid] - 1;
+            }
+    
+            // update start , mid and end indexes ->
+            if (arr[mid] != mid + 1)
+            {
+                end = mid - 1;
+            }
+            else if (arr[start] != start + 1)
+            {
+                end = mid - 1;
+            }
+            else if (arr[end] != end + 1)
+            {
+                start = mid + 1;
+            }
+            else
+            {
+                start++;
+                end--;
+            }
         }
-
-        // update start , mid and end indexes ->
-        if (arr[mid] != mid + 1)
-        {
-            end = mid - 1;
-        }
-        else if (arr[start] != start + 1)
-        {
-            end = mid - 1;
-        }
-        else if (arr[end] != end + 1)
-        {
-            start = mid + 1;
-        }
-        else
-        {
-            start++;
-            end--;
-        }
-    }
-    return -1;
+        // edge case (if no missing ele found then need to return end missing ele)
+        return arr.size()+1;
 }
 
 int main()
