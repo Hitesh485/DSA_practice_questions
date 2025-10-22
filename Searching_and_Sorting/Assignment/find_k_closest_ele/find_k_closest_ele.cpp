@@ -58,6 +58,7 @@ vector<int> bs_method(vector<int> &arr, int k, int x)
     return vector<int>(arr.begin() + l + 1, arr.begin() + h);
 }
 
+
 vector<int> two_ptr_method(vector<int> &arr, int k, int x)
 {
     int l = 0, h = arr.size() - 1;
