@@ -6,94 +6,67 @@ using namespace std;
 
 class Node
 {
-    public:
+public:
     int data;
-    Node* left;
-    Node* right;
+    Node *left;
+    Node *right;
 
-    Node(int data){
+    Node(int data)
+    {
         this->data = data;
         left = NULL;
         right = NULL;
     }
 };
 
-Node* buildTree()
+Node *buildTree()
 {
     int data;
-    cout << "Enter root node data: " ;
-    cin>> data;
+    cout << "Enter root node data: ";
+    cin >> data;
 
     if (data <= -1)
     {
         return NULL;
     }
 
-    Node* root = new Node(data);
-    cout << "Enter left " << root->data << " data: " ;
+    Node *root = new Node(data);
+    cout << "Enter left " << root->data << " data: ";
     root->left = buildTree();
-    cout << "Enter right " << root->data << " data: " ;
+    cout << "Enter right " << root->data << " data: ";
     root->right = buildTree();
 
     return root;
 }
 
-void levelOrderTraversal(Node* root)
-{
-    queue<Node*> q;
-    q.push(root);
-    q.push(NULL);
+// int treeHeight(Node *root)
+// {
+//     if (root == NULL)
+//     {
+//         return 0;
+//     }
 
-    while (!q.empty())
-    {
-        Node* temp = q.front();
-        q.pop();
+//     // ek case
+//     int leftSubree = treeHeight(root->left);
+//     int rightSubtee = treeHeight(root->right);
 
-        if (temp == NULL)
-        {
-            cout << endl;
-            if (!q.empty())
-            {
-                q.push(NULL);
-            }
-        }
-        else
-        {
-            cout << temp->data << " ";
-            if (temp->left)
-            {
-                q.push(temp->left);
-            }
-            if (temp->right)
-            {
-                q.push(temp->right);
-            }
-        }
-    }
-    
-}
+//     return 1 + max(leftSubree, rightSubtee);
+// }
 
 int treeHeight(Node *root)
 {
-    if (root == NULL)
-    {
-        return 0;
-    }
+    if (root == NULL) return 0;
 
-    // ek case
-    int leftSubree = treeHeight(root->left);
-    int rightSubtee = treeHeight(root->right);
+    int LH = treeHeight(root->left);
+    int RH = treeHeight(root->right);
 
-    return 1 + max(leftSubree, rightSubtee);
+    return max(LH, RH) + 1;
 }
 
-int main()
+    int main()
 {
     Node *root = NULL;
     root = buildTree();
-
-    // level order traversal
-    // levelOrderTraversal(root);
 
     // height -> consider nodes
     cout << treeHeight(root) << endl;
